@@ -1,6 +1,6 @@
 {
   "name": "vue3-virtual-list-ts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "CYoU",
   "license": "MIT",
   "description": "A virtual list component based on vue3 + ts",
