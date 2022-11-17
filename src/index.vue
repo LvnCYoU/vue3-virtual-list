@@ -104,7 +104,7 @@ export default defineComponent({
 
     watch(props, () => {
       setScrollContainerHeight();
-      setIsCompelete();
+      isCompelete = false;
     })
 
     onMounted(() => {
