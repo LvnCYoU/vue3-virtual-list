@@ -1,3 +1,1 @@
-import VirtualList from "./index.vue";
-
-export { VirtualList }
+import {} from 'vue'

@@ -1,5 +1,5 @@
 <script lang="ts">
-import { onMounted, ref, watch, defineComponent, toRefs, PropType} from 'vue'
+import { onMounted, ref, watch, defineComponent, toRefs, PropType } from 'vue'
 interface Props {
   data: any[],
   dataKey: string,

@@ -7,6 +7,12 @@ A virtual list component based on vue3 + ts
 ```sh
 yarn add vue3-virtual-list-ts
 ```
+## How to use
+
+```sh
+import { VirtualList } from vue3-virtual-list-ts
+```
+
 ## For Example
 
 ```vue

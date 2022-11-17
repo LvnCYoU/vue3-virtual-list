@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import VirtualList from "./index.vue";
+import { VirtualList } from "./components/VirutalList"
 const mock = (length = 99999) => {
   return Array.from(Array(length).keys())
   .map(i => ({

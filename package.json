@@ -1,6 +1,6 @@
 {
   "name": "vue3-virtual-list-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "CYoU",
   "license": "MIT",
   "description": "A virtual list component based on vue3 + ts",
@@ -17,18 +17,37 @@
   "bugs": {
     "url": "https://github.com/LvnCYoU/vue3-virtual-list/issues"
   },
-  "main": "src/index.ts",
+  "main": "./dist/lib.umd.cjs",
+  "module": "./dist/lib.js",
+  "types": "./dist/components/index.d.ts",
+  "files": [
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/lib.js",
+      "require": "./dist/lib.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
     "build-only": "vite build",
+    "dts": "vue-tsc --declaration --emitDeclarationOnly ",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "peerDependencies": {
-    "vue": "^3.2.41"
+    "vue": ">=3.0.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
@@ -49,5 +68,9 @@
     "vite": "^3.1.8",
     "vitest": "^0.24.3",
     "vue-tsc": "^1.0.8"
+  },
+  "dependencies": {
+    "vite-plugin-dts": "^1.7.1",
+    "vue": "^3.2.45"
   }
 }
