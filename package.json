@@ -1,6 +1,6 @@
 {
   "name": "vue3-virtual-list-ts",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "author": "CYoU",
   "license": "MIT",
   "description": "A virtual list component based on vue3 + ts",
@@ -17,9 +17,9 @@
   "bugs": {
     "url": "https://github.com/LvnCYoU/vue3-virtual-list/issues"
   },
-  "main": "./dist/lib.umd.cjs",
-  "module": "./dist/lib.js",
-  "types": "./dist/components/index.d.ts",
+  "main": "./dist/lib.mjs",
+  "module": "./dist/lib.umd.js",
+  "types": "index.d.ts",
   "files": [
     "package.json",
     "README.md",
@@ -29,12 +29,6 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/lib.mjs",
-      "require": "./dist/lib.umd.js"
-    }
   },
   "scripts": {
     "dev": "vite",

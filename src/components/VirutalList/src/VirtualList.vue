@@ -1,11 +1,12 @@
 <script lang="ts">
-import { onMounted, ref, watch, defineComponent, toRefs, PropType } from 'vue'
+import { onMounted, ref, watch, defineComponent, toRefs } from 'vue';
+import type { PropType } from "vue";
 interface Props {
   data: any[],
   dataKey: string,
-  showLoading?: boolean,
-  itemHeight?: number,
-  dataBuffer?: number,
+  showLoading: boolean,
+  itemHeight: number,
+  dataBuffer: number,
   onCompelete?: () => void
 }
 export default defineComponent({
@@ -36,7 +37,7 @@ export default defineComponent({
       default: null
     }
   },
-  setup(props: Props){
+  setup(props: Props): any{
     const {data, dataBuffer, itemHeight, onCompelete} = toRefs(props)
     const vitrualListContainer = ref<HTMLElement | null>(null)
     const canSeeDataCount = ref(0);
@@ -60,9 +61,9 @@ export default defineComponent({
     }
 
     const setDataRange = () => {
-      dataRange.startIndex = ~~(vitrualListContainer?.value.scrollTop / itemHeight.value) - (dataBuffer.value / 2)
+      dataRange.startIndex =  vitrualListContainer.value ? ~~(vitrualListContainer?.value?.scrollTop / itemHeight?.value) - (dataBuffer?.value / 2) : 0
       dataRange.startIndex = Math.max(dataRange.startIndex, 0);
-      dataRange.endIndex = dataRange.startIndex + canSeeDataCount.value + dataBuffer.value;
+      dataRange.endIndex = dataRange.startIndex + canSeeDataCount.value + dataBuffer?.value;
       dataRange.endIndex = Math.min(data.value.length - 1, dataRange.endIndex);
       return () => getShowDataList()
     }
@@ -90,14 +91,18 @@ export default defineComponent({
       return containerHeight.value = data.value.length * itemHeight.value;
     }
     const onPageEnd = () => {
-      if(dataRange.startIndex + canSeeDataCount.value + (dataBuffer.value / 2) > data.value.length - 1 && !isCompelete){
+      if (
+        dataRange.startIndex + canSeeDataCount.value + dataBuffer?.value / 2 >
+          data.value.length - 1 &&
+        !isCompelete
+      ) {
         setIsCompelete();
-        return onCompelete.value?.()
+        return onCompelete?.value?.()
       }
     }
 
     const setCanSeeDataCount = () => {
-      canSeeDataCount.value = Math.ceil(vitrualListContainer.value.clientHeight / itemHeight.value) + 1;
+      canSeeDataCount.value = vitrualListContainer.value ? Math.ceil(vitrualListContainer.value.clientHeight / itemHeight.value) + 1 : 0
     }
 
     const setIsCompelete = () => isCompelete = !isCompelete;
@@ -133,7 +138,7 @@ export default defineComponent({
   >
     <div 
       class="vitrual-list-scroll-list" 
-      v-if="data.length"
+      v-if="data?.length"
       :style="`
         padding-top: ${paddingTop}px;
         height: ${containerHeight}px;

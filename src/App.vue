@@ -28,7 +28,7 @@ export default defineComponent({
   name: "App",
   data() {
     return {
-      data: mock()
+      data: mock(1000)
     };
   },
   components: {

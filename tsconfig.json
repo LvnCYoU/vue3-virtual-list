@@ -10,5 +10,11 @@
     {
       "path": "./tsconfig.vitest.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "third-lib": ["node_modules/third-lib"]
+    }
+  }
 }

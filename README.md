@@ -5,6 +5,10 @@ A virtual list component based on vue3 + ts
 ## Install
 
 ```sh
+npm i vue3-virtual-list-ts --save
+
+or
+
 yarn add vue3-virtual-list-ts
 ```
 ## How to use

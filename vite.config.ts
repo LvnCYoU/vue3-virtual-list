@@ -5,7 +5,10 @@ import dts from "vite-plugin-dts";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), dts()],
+  base: "./",
   build: {
+    skipDiagnostics: false,
+    logDiagnostics: true,
     lib: {
       // 入口指向组件库入口模块
       entry: resolve(__dirname, "src/components/index.ts"),
@@ -13,6 +16,7 @@ export default defineConfig({
       // 构建生成的文件名，与package.json中配置一致
       fileName: "lib",
     },
+    cssCodeSplit: true,
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖
       external: ["vue"],
